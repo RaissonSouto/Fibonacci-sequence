@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 class Main {
   public static void main(String args[]) {
   
@@ -9,20 +11,20 @@ class Main {
     Scanner input = new Scanner(System.in);
     
     String answer = "";
-    int old = 0;
-    int nw = 1;
-    boolean c = true;
+    int number1 = 0;
+    int number2 = 1;
+    boolean switchLoop = true;
 
-    for (int num = input.nextInt();num>0;num--) {
-      if (c) {
-        answer += Integer.toString(old)+" ";
-        old += nw;
-        c = false;
+    for (int range = input.nextInt();range>0;range--) {
+      if (switchLoop) {
+        answer += Integer.toString(number1)+" ";
+        number1 += number2;
+        switchLoop = false;
       }
-      else if (!c) {
-        answer += Integer.toString(nw)+" ";
-        nw += old;
-        c = true;
+      else if (!switchLoop) {
+        answer += Integer.toString(number2)+" ";
+        number2 += number1;
+        switchLoop = true;
       }
     }
     System.out.println(answer.trim());
